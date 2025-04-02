@@ -1,0 +1,76 @@
+Uruchomienie aplikacji lokalnie:
+
+1. Utwórz środowisko wirtualne
+
+`python -m venv myenv`
+
+2. Aktywuj środowisko
+* Windows (CMD)
+
+`myenv\Scripts\activate`
+* Windows (PowerShell)
+
+`.\myenv\Scripts\Activate`
+
+3. Zainstaluj zależności:
+
+`pip install -r requirements.txt`
+
+4. Uruchom aplikację:
+
+`python app.py`
+
+5. Testuj aplikację:
+
+* Otwórz przeglądarkę i przejdź pod adres: `http://localhost:5000`.
+* Przetestuj endpointy za pomocą `curl` lub Postmana.
+
+
+Uruchomienie aplikacji za pomocą Dockera:
+
+1. Zbuduj obraz Dockera:
+
+`docker build -t my-ml-app .`
+
+2. Uruchom kontener:
+
+`docker run -p 5000:5000 my-ml-app`
+
+5. Testuj aplikację:
+
+* Otwórz przeglądarkę i przejdź pod adres: `http://localhost:5000`.
+* Przetestuj endpointy za pomocą `curl` lub Postmana.
+
+
+Uruchamianie aplikacji za pomocą Docker Compose
+
+1. Uruchom serwisy:
+
+`docker-compose up --build`
+
+5. Testuj aplikację:
+
+* Otwórz przeglądarkę i przejdź pod adres: `http://localhost:5000`.
+* Przetestuj endpointy za pomocą `curl` lub Postmana.
+
+
+Konfiguracja parametrów i zasobów
+
+1. Zmienne środowiskowe:
+
+* Parametry bazy danych są konfigurowane w pliku `docker-compose.yml`:
+
+```
+environment:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_DB: mydatabase
+```
+
+* Jeśli uruchamiasz aplikację lokalnie, upewnij się, że te same parametry są używane w kodzie aplikacji (`app.py`).
+
+2. Zasoby wymagane przez aplikację:
+
+* Python 3.9 lub nowszy.
+* Biblioteki wymienione w `requirements.txt`.
+* Docker i Docker Compose (jeśli uruchamiasz aplikację w kontenerach).
